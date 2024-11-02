@@ -1,0 +1,39 @@
+{
+    "name": "sudippalash/activity-log",
+    "description": "Laravel package for Activity log",
+    "keywords": [
+        "Sudip",
+        "Laravel Activity log",
+        "Activity log",
+        "Laravel"
+    ],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sudip Palash",
+            "email": "palash.sudip@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.3|^8.3",
+        "laravel/framework": "^8.0|^9.0|^10.0|^11.0",
+        "spatie/laravel-activitylog": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+          "Sudip\\ActivityLog\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sudip\\ActivityLog\\Providers\\AppServiceProvider",
+                "Sudip\\ActivityLog\\Providers\\RouteServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
