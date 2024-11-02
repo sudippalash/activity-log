@@ -138,6 +138,19 @@ You should copy the below line and paste in your project menu section
 <a href="{{ route(config('activity-log.route_name') . '.index') }}">{{ trans('activity-log::sp_activity_log.activity_logs') }}</a>
 ```
 
+Use this `ActivityLog`` trait in your model(s). It will automatically store all DB-related events to the model(s).
+
+```bash
+use Sudip\ActivityLog\Traits\ActivityLog;
+
+class User extends Authenticatable
+{
+    use ActivityLog;
+
+    ...
+}
+```
+
 [ico-version]: https://img.shields.io/packagist/v/sudippalash/activity-log?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/sudippalash/activity-log?style=flat-square
 [link-packagist]: https://packagist.org/packages/sudippalash/activity-log
