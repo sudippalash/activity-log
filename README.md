@@ -1,6 +1,6 @@
 ## Activity Log
 
-![alt text](https://github.com/sudippalash/activity-log/blob/master/img.jpg?raw=true)
+![alt text](https://github.com/sudippalash/activity-log/blob/main/img.jpg?raw=true)
 
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
