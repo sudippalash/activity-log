@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'activity-log');
 
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'activity-log');
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'activity-log');
 
         //Spatie activitylog config & migration published
         $ds = new \ReflectionClass(\Spatie\Activitylog\ActivitylogServiceProvider::class);
@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         ], 'required');
 
         $this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/activity-log'),
+            __DIR__.'/../lang' => lang_path('vendor/activity-log'),
         ], 'lang');
 
         $this->publishes([

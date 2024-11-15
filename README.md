@@ -7,7 +7,7 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 
-`activity-log` is a activity log management package of `Laravel` that provides options to create & manage activity log.
+`activity-log` is an activity log management package for `Laravel` that allows you to create and preview activity logs.
 
 Note: This package is wrapper of `spatie/laravel-activitylog` package.
 
@@ -26,11 +26,11 @@ You should publish
 
 migrations files:
 1. `database/migrations/create_activity_log_table.php`
-2. `database/migrations/add_event_column_to_activity_log_table.php`, 
-2. `database/migrations/add_batch_uuid_column_to_activity_log_table.php`, 
+2. `database/migrations/add_event_column_to_activity_log_table.php`
+2. `database/migrations/add_batch_uuid_column_to_activity_log_table.php`
 
 config files:
-1. `config/activitylog.php`, 
+1. `config/activitylog.php`
 2. `config/activity-log.php` 
 
 with:
@@ -44,72 +44,72 @@ For `config/activitylog.php` file you should check `spatie/laravel-activitylog` 
 This is the contents of the published config file `config/activity-log.php`:
 
 ```php
-    return [
-        /*
-        |--------------------------------------------------------------------------
-        | Extends Layout Name
-        |--------------------------------------------------------------------------
-        |
-        | Your main layout file path name. Example: layouts.app
-        | 
-        */
+return [
+    /*
+    |--------------------------------------------------------------------------
+    | Extends Layout Name
+    |--------------------------------------------------------------------------
+    |
+    | Your main layout file path name. Example: layouts.app
+    | 
+    */
 
-        'layout_name' => 'layouts.app',
-        
-        /*
-        |--------------------------------------------------------------------------
-        | Section Name
-        |--------------------------------------------------------------------------
-        |
-        | Your section name which in yield in main layout file. Example: content
-        | 
-        */
+    'layout_name' => 'layouts.app',
+    
+    /*
+    |--------------------------------------------------------------------------
+    | Section Name
+    |--------------------------------------------------------------------------
+    |
+    | Your section name which in yield in main layout file. Example: content
+    | 
+    */
 
-        'section_name' => 'content',
+    'section_name' => 'content',
 
-        /*
-        |--------------------------------------------------------------------------
-        | Route Name, Prefix & Middleware
-        |--------------------------------------------------------------------------
-        |
-        | Provide a route name for activity-log route. Example: user.activity-logs
-        | Provide a prefix name for activity-log url. Example: user/activity-logs
-        | If activity-log route use any middleware then provide it or leave empty array. Example: ['auth'] 
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | Route Name, Prefix & Middleware
+    |--------------------------------------------------------------------------
+    |
+    | Provide a route name for activity-log route. Example: user.activity-logs
+    | Provide a prefix name for activity-log url. Example: user/activity-logs
+    | If activity-log route use any middleware then provide it or leave empty array. Example: ['auth'] 
+    */
 
-        'route_name' => 'user.activity-logs',
-        'route_prefix' => 'user/activity-logs',
-        'middleware' => [],
+    'route_name' => 'user.activity-logs',
+    'route_prefix' => 'user/activity-logs',
+    'middleware' => [],
 
-        /*
-        |--------------------------------------------------------------------------
-        | Bootstrap version
-        |--------------------------------------------------------------------------
-        |
-        | Which bootstrap you use in your application. Example: 3 or 4 or 5
-        | 
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | Bootstrap version
+    |--------------------------------------------------------------------------
+    |
+    | Which bootstrap you use in your application. Example: 3 or 4 or 5
+    | 
+    */
 
-        'bootstrap_v' => 5,
+    'bootstrap_v' => 5,
 
-        /*
-        |--------------------------------------------------------------------------
-        | CSS
-        |--------------------------------------------------------------------------
-        |
-        | Add your css class in this property if you want to change design. 
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | CSS
+    |--------------------------------------------------------------------------
+    |
+    | Add your css class in this property if you want to change design. 
+    */
 
-        'css' => [
-            'container' => null,
-            'card' => null,
-            'input' => null,
-            'btn' => null,
-            'table' => null,
-            'table_action_col_width' => null,
-            'table_action_btn' => null,
-        ],
-    ];
+    'css' => [
+        'container' => null,
+        'card' => null,
+        'input' => null,
+        'btn' => null,
+        'table' => null,
+        'table_action_col_width' => null,
+        'table_action_btn' => null,
+    ],
+];
 ```
 
 Optionally, you can publish the views using
@@ -135,15 +135,17 @@ php artisan migrate
 You should copy the below line and paste in your project menu section
 
 ```bash
-<a href="{{ route(config('activity-log.route_name') . '.index') }}">{{ trans('activity-log::sp_activity_log.activity_logs') }}</a>
+<a href="{{ route(config('activity-log.route_name') . '.index') }}">{{ __('activity-log::sp_activity_log.activity_logs') }}</a>
 ```
 
 Use this `ActivityLog`` trait in your model(s). It will automatically store all DB-related events to the model(s).
 
 ```bash
+...
+
 use Sudip\ActivityLog\Traits\ActivityLog;
 
-class User extends Authenticatable
+class MyModel extends Model
 {
     use ActivityLog;
 
