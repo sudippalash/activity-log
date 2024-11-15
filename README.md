@@ -135,7 +135,7 @@ php artisan migrate
 You should copy the below line and paste in your project menu section
 
 ```bash
-<a href="{{ route(config('activity-log.route_name') . '.index') }}">{{ __('activity-log::sp_activity_log.activity_logs') }}</a>
+<a href="{{ route(config('activity-log.route_name').'.index') }}">{{ trans('activity-log::sp_activity_log.activity_logs') }}</a>
 ```
 
 Use this `ActivityLog`` trait in your model(s). It will automatically store all DB-related events to the model(s).

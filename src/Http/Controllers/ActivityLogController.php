@@ -41,7 +41,7 @@ class ActivityLogController extends Controller
             $sql->where('event', $request->event);
         }
 
-        $records = $sql->paginate($request->limit ?? 15);
+        $records = $sql->orderBy('id', 'DESC')->paginate($request->limit ?? 15);
 
         $logNames = Activity::groupBy('log_name')->pluck('log_name')->toArray();
         $events = Activity::groupBy('event')->pluck('event')->toArray();
