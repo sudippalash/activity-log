@@ -3,14 +3,14 @@
 namespace Sudip\ActivityLog\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
 use Sudip\ActivityLog\Traits\ActivityLogUtility;
-use Illuminate\Http\Request;
 
 class ActivityLogController extends Controller
 {
     use ActivityLogUtility;
-    
+
     protected $routeName;
 
     public function __construct()
@@ -46,7 +46,7 @@ class ActivityLogController extends Controller
         $logNames = Activity::groupBy('log_name')->pluck('log_name')->toArray();
         $events = Activity::groupBy('event')->pluck('event')->toArray();
 
-        return view($this->getBladeName() . '.index', compact('routeName', 'cssClass', 'records', 'logNames', 'events'));
+        return view($this->getBladeName().'.index', compact('routeName', 'cssClass', 'records', 'logNames', 'events'));
     }
 
     public function show(Request $request, $id)
@@ -61,6 +61,6 @@ class ActivityLogController extends Controller
 
         $properties = json_decode($data->properties, true);
 
-        return view($this->getBladeName() . '.show', compact('routeName', 'cssClass', 'data', 'causerType', 'properties'));
+        return view($this->getBladeName().'.show', compact('routeName', 'cssClass', 'data', 'causerType', 'properties'));
     }
 }

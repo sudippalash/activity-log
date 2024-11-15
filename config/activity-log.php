@@ -7,18 +7,18 @@ return [
     |--------------------------------------------------------------------------
     |
     | Your main layout file path name. Example: layouts.app
-    | 
+    |
     */
 
     'layout_name' => 'layouts.app',
-    
+
     /*
     |--------------------------------------------------------------------------
     | Section Name
     |--------------------------------------------------------------------------
     |
     | Your section name which in yield in main layout file. Example: content
-    | 
+    |
     */
 
     'section_name' => 'content',
@@ -30,7 +30,7 @@ return [
     |
     | Provide a route name for activity-log route. Example: user.activity-logs
     | Provide a prefix name for activity-log url. Example: user/activity-logs
-    | If activity-log route use any middleware then provide it or leave empty array. Example: ['auth'] 
+    | If activity-log route use any middleware then provide it or leave empty array. Example: ['auth']
     */
 
     'route_name' => 'user.activity-logs',
@@ -43,7 +43,7 @@ return [
     |--------------------------------------------------------------------------
     |
     | Which bootstrap you use in your application. Example: 3 or 4 or 5
-    | 
+    |
     */
 
     'bootstrap_v' => 5,
@@ -53,7 +53,7 @@ return [
     | CSS
     |--------------------------------------------------------------------------
     |
-    | Add your css class in this property if you want to change design. 
+    | Add your css class in this property if you want to change design.
     */
 
     'css' => [

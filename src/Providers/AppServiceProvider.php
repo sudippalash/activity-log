@@ -2,37 +2,37 @@
 
 namespace Sudip\ActivityLog\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Collection;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../../config/activity-log.php', 'activity-log'
+            __DIR__.'/../../config/activity-log.php', 'activity-log'
         );
     }
 
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'activity-log');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'activity-log');
 
-        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'activity-log');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'activity-log');
 
         //Spatie activitylog config & migration published
         $ds = new \ReflectionClass(\Spatie\Activitylog\ActivitylogServiceProvider::class);
-        $path = str_replace(DIRECTORY_SEPARATOR . $ds->getShortName() . '.php', '', $ds->getFileName());
+        $path = str_replace(DIRECTORY_SEPARATOR.$ds->getShortName().'.php', '', $ds->getFileName());
 
         $this->publishes([
             //Spatie activitylog config & migration published
-            $path . '/../config/activitylog.php' => config_path('activitylog.php'),
-            $path . '/../database/migrations/create_activity_log_table.php.stub' => $this->getMigrationFileName('create_activity_log_table.php', time()),
-            $path . '/../database/migrations/add_event_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_event_column_to_activity_log_table.php', time()),
-            $path . '/../database/migrations/add_batch_uuid_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_batch_uuid_column_to_activity_log_table.php', time()),
+            $path.'/../config/activitylog.php' => config_path('activitylog.php'),
+            $path.'/../database/migrations/create_activity_log_table.php.stub' => $this->getMigrationFileName('create_activity_log_table.php', time()),
+            $path.'/../database/migrations/add_event_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_event_column_to_activity_log_table.php', time()),
+            $path.'/../database/migrations/add_batch_uuid_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_batch_uuid_column_to_activity_log_table.php', time()),
 
-            __DIR__ . '/../../config/activity-log.php' => config_path('activity-log.php'),
+            __DIR__.'/../../config/activity-log.php' => config_path('activity-log.php'),
         ], 'required');
 
         $this->publishes([

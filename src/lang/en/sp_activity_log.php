@@ -8,7 +8,7 @@ return [
     'show' => 'Show',
     'search' => 'Search',
     'all_field' => 'All :field',
-    
+
     'row_not_found' => 'Row not found!',
     'back_to_list' => 'Back to List',
 
