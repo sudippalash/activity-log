@@ -29,8 +29,10 @@ class AppServiceProvider extends ServiceProvider
             //Spatie activitylog config & migration published
             $path.'/../config/activitylog.php' => config_path('activitylog.php'),
             $path.'/../database/migrations/create_activity_log_table.php.stub' => $this->getMigrationFileName('create_activity_log_table.php', time()),
-            $path.'/../database/migrations/add_event_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_event_column_to_activity_log_table.php', time()),
-            $path.'/../database/migrations/add_batch_uuid_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_batch_uuid_column_to_activity_log_table.php', time()),
+            $path.'/../database/migrations/add_event_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_event_column_to_activity_log_table.php', time() + 1),
+            $path.'/../database/migrations/add_batch_uuid_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_batch_uuid_column_to_activity_log_table.php', time() + 2),
+            
+            __DIR__.'/../../database/migrations/add_ip_column_to_activity_log_table.php.stub' => $this->getMigrationFileName('add_ip_column_to_activity_log_table.php', time() + 3),
 
             __DIR__.'/../../config/activity-log.php' => config_path('activity-log.php'),
         ], 'required');
